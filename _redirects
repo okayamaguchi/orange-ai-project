@@ -1,5 +1,2 @@
-/ai/*.png /:splat.png 200
-/ai/*.jpg /:splat.jpg 200
-/ai/style.css /style.css 200
-/ai /ai/index.html 200
-/* 200! Role=admin 
+/ai/* /:splat 200
+/ai /ai/index.html 200 
