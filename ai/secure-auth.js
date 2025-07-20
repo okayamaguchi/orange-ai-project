@@ -1,5 +1,9 @@
-// より強固な認証システム
+// より強固な認証システム - 一時的に無効化
 (function() {
+  // 認証を一時的に無効化
+  sessionStorage.setItem('orangeai_auth', 'verified');
+  return;
+  
   // 既に認証済みかチェック
   if (sessionStorage.getItem('orangeai_auth') === 'verified') {
     return;
