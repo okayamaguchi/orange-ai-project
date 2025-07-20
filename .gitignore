@@ -24,3 +24,5 @@ yarn-error.log*
 # Temporary files
 *.tmp
 *.temp 
+# Local Netlify folder
+.netlify
