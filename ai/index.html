@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ORANGE AI Project - 青春は青くない</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Montserrat:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/din-next" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E3A8A',
+            secondary: '#1A73E8',
+            accent: '#F3F4F6',
+            textMain: '#111827',
+            textLight: '#6B7280'
+          },
+          fontFamily: {
+            'din': ['DIN Next', 'DIN', 'Noto Sans JP', 'sans-serif'],
+            'noto': ['Noto Sans JP', 'sans-serif'],
+            'montserrat': ['Montserrat', 'sans-serif'],
+            'roboto': ['Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-din bg-white text-textMain">
+  <!-- Header -->
+  <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-accent">
+    <nav class="max-w-6xl mx-auto px-8 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold text-primary tracking-wide font-din">
+        ORANGE AI Project
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#about" class="text-textMain hover:text-primary transition-colors font-medium italic">ABOUT</a>
+        <a href="#pm" class="text-textMain hover:text-primary transition-colors font-medium italic">PM</a>
+        <a href="#schedule" class="text-textMain hover:text-primary transition-colors font-medium italic">SCHEDULE</a>
+        <a href="#application" class="text-textMain hover:text-primary transition-colors font-medium italic">APPLICATION</a>
+        <a href="#series" class="text-textMain hover:text-primary transition-colors font-medium italic">SERIES</a>
+        <a href="https://forms.gle/YXe9pXWGSEsc8yLV7" target="_blank" class="bg-primary hover:bg-blue-700 text-white rounded-full px-6 py-3 font-bold transition-colors">
+          参加する
+        </a>
+      </div>
+      <!-- Mobile menu button -->
+      <button class="md:hidden text-textMain" id="mobile-menu-btn">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </nav>
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden bg-white border-t border-accent" id="mobile-menu">
+      <div class="px-8 py-4 space-y-4">
+        <a href="#about" class="block text-textMain hover:text-primary italic">ABOUT</a>
+        <a href="#pm" class="block text-textMain hover:text-primary italic">PM</a>
+        <a href="#schedule" class="block text-textMain hover:text-primary italic">SCHEDULE</a>
+        <a href="#application" class="block text-textMain hover:text-primary italic">APPLICATION</a>
+        <a href="#series" class="block text-textMain hover:text-primary italic">SERIES</a>
+        <a href="https://forms.gle/YXe9pXWGSEsc8yLV7" target="_blank" class="inline-block bg-primary text-white rounded-full px-6 py-3 font-bold">参加する</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="bg-white md:bg-gradient-to-r md:from-blue-600 md:to-blue-400 text-textMain md:text-white relative overflow-hidden">
+    <div class="absolute inset-0 hidden md:block md:bg-black/20"></div>
+    
+    <!-- Mobile view -->
+    <div class="block md:hidden pt-20">
+      <img src="fujita_kiguchi_yamada.png" alt="ORANGE AI Project" class="w-full h-auto">
+    </div>
+    
+    <!-- Desktop view -->
+    <div class="hidden md:block min-h-screen relative">
+      <div class="absolute inset-0" style="background-image: url('fujita_kiguchi_yamada.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+      <div class="relative z-10 min-h-screen">
+      </div>
+    </div>
+  </section>
+
+  <!-- Entry Section -->
+  <section class="py-16 px-8 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="mb-8 flex flex-col justify-center items-center gap-6">
+        <div class="bg-primary/10 text-primary px-6 py-3 flex items-center gap-2 border-l-4 border-primary">
+          <i class="fas fa-clock"></i>
+          <span class="font-bold">エントリー受付中</span>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-primary border-b-2 border-primary pb-1">2025/7/31</div>
+          <div class="text-sm text-textLight mt-1">23:59 締切</div>
+        </div>
+      </div>
+      <a href="https://forms.gle/YXe9pXWGSEsc8yLV7" target="_blank" class="inline-block bg-primary hover:bg-blue-700 text-white px-12 py-4 font-bold text-lg transition-colors shadow-lg border-none rounded-full">
+        今すぐエントリー
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-16 bg-accent">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-xl md:text-4xl font-bold tracking-wide text-center mb-8 text-textMain whitespace-nowrap">
+        ORANGE AI Project とは
+      </h2>
+      
+      <div class="max-w-5xl mx-auto text-center mb-8">
+        <p class="text-lg text-textLight leading-relaxed">
+          ORANGE AI Projectは、岡山県・瀬戸内エリアの若者が、自分の「原体験」と「社会課題」を掛け合わせ、<br>
+          AIを活用したソリューションを形にしていくプロジェクトです。<br>
+          身近な課題をリサーチし、参加者自身の関心や情熱と結びつけてアイデアを生み出し、メンターとともにプロダクトを開発。<br>
+          最終的には社会実装を目指します。
+        </p>
+      </div>
+
+             <!-- Supervisor -->
+       <div class="bg-white shadow-lg p-8 mb-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <h3 class="text-xl md:text-2xl font-bold text-center mb-8 text-textMain">プロジェクト監修</h3>
+        <div class="grid md:grid-cols-3 gap-8 items-center">
+          <div class="flex justify-center">
+            <img src="kiguchi.jpg" alt="木口佳南氏" class="w-48 h-48 rounded-full object-cover shadow-lg" />
+          </div>
+          <div class="md:col-span-2">
+            <div class="flex items-center mb-4">
+              <h4 class="text-lg md:text-xl font-bold text-primary mr-3">木口 佳南 氏</h4>
+              <a href="https://x.com/KananK_AI" target="_blank" class="text-textLight text-lg font-bold hover:text-primary transition-colors">𝕏</a>
+            </div>
+            <p class="text-textLight leading-relaxed">
+              岡山県出身。<br>
+              大阪国際工科専門職大学 工科学部 情報工学科 AI戦略コース卒業。画像認識、自然言語処理、深層学習など多領域にわたるAI分野に精通し、アルツハイマー病の潜在属性を大規模言語モデルで解析する研究にて「優秀卒業論文賞」を受賞。<br>
+              現在は、AIスタートアップや研究機関での実務経験を活かしながら、ソフトバンクアカデミアにて孫正義氏の前で新入生代表として登壇するなど、次世代のAIリーダーとして精力的に活動中。
+            </p>
+          </div>
+        </div>
+      </div>
+
+             <!-- Features -->
+       <div class="grid md:grid-cols-3 gap-8">
+         <div class="bg-white shadow-lg p-6 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+           <div class="text-4xl mb-4">💰</div>
+           <h3 class="text-base md:text-lg font-bold mb-4 text-textMain">最大150万円の開発支援金を支給</h3>
+           <p class="text-textLight">プロジェクト開発に必要な費用をサポートし、アイデアの実現を後押しします。</p>
+         </div>
+         <div class="bg-white shadow-lg p-6 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+           <div class="text-4xl mb-4">🤝</div>
+           <h3 class="text-base md:text-lg font-bold mb-4 text-textMain">月1〜2回のメンタリング・伴走支援</h3>
+           <p class="text-textLight">経験豊富なメンターが定期的にサポートし、プロジェクトの進行を継続的にフォローします。</p>
+         </div>
+         <div class="bg-white shadow-lg p-6 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+           <div class="text-4xl mb-4">🤖</div>
+           <h3 class="text-base md:text-lg font-bold mb-4 text-textMain">AIメンタリングの実施（1回・1時間）</h3>
+           <p class="text-textLight">AI分野の専門家による集中的なメンタリングセッションで、技術的な課題を解決します。</p>
+         </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- Project Managers Section -->
+  <section id="pm" class="py-16 px-16 bg-white">
+    <div class="max-w-6xl mx-auto">
+                   <h2 class="text-xl md:text-4xl font-bold tracking-wide text-center mb-8 text-textMain whitespace-nowrap">
+        プロジェクトマネージャー
+      </h2>
+      
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Yamada -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div class="p-6">
+            <div class="flex items-start gap-6 mb-4">
+              <div class="w-24 h-24 bg-gray-200 rounded-full border-2 border-gray-300 flex-shrink-0 overflow-hidden">
+                <img src="yamada_new.png" alt="山田邦明" class="w-full h-full object-cover" />
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center mb-2">
+                  <h3 class="text-xl md:text-2xl font-bold text-textMain mr-3">山田邦明</h3>
+                  <a href="https://x.com/kun1aki" target="_blank" class="text-textLight text-lg font-bold hover:text-primary transition-colors">𝕏</a>
+                </div>
+                <p class="text-lg italic text-textLight mb-3">Kuniaki Yamada</p>
+                <p class="font-bold text-primary mb-4">瀬戸内と株式会社　共同代表</p>
+              </div>
+            </div>
+            <p class="text-textLight text-sm leading-relaxed mb-6">
+              津山高専から筑波大学に編入。京都大学法科大学院卒業後、スタートアップ向け法律事務所で弁護士として活動。知的財産や資金調達に関する契約業務などに従事。その後、株式会社アカツキで管理部門の立ち上げ、IPO業務の主担当として上場を経験。岡山県に帰郷後、クリエイターのパートナー事業「しろしinc.」、教育事業「無花果高等学園」、瀬戸内エリアに特化したVC「Setouchi Startups」をはじめる。クリエイターからの相談を1000件受け「クリエイター１年目のビジネススキル図鑑」（KADOKAWA）を執筆。VC業に集中するため弁護士資格を返納
+            </p>
+          </div>
+        </div>
+
+        <!-- Fujita -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div class="p-6">
+            <div class="flex items-start gap-6 mb-4">
+              <div class="w-24 h-24 bg-gray-200 rounded-full border-2 border-gray-300 flex-shrink-0 overflow-hidden">
+                <img src="fujita_new.png" alt="藤田圭一郎" class="w-full h-full object-cover" />
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center mb-2">
+                  <h3 class="text-xl md:text-2xl font-bold text-textMain mr-3">藤田圭一郎</h3>
+                  <a href="https://x.com/keiichilo" target="_blank" class="text-textLight text-lg font-bold hover:text-primary transition-colors">𝕏</a>
+                </div>
+                <p class="text-lg italic text-textLight mb-3">Keiichiro Fujita</p>
+                <p class="font-bold text-primary mb-4">瀬戸内と株式会社　共同代表</p>
+              </div>
+            </div>
+            <p class="text-textLight text-sm leading-relaxed mb-6">
+              岡山市出身、龍谷大学法学部卒。2016年より岡山にスタートアップ文化を根付かせる為のコミュニティ活動を開始、2021年に瀬戸内に特化したVCファンド「SetouchiStartups」を創業し、エリアにゆかりのあるシード期のスタートアップへの投資を行っている。また、瀬戸内のスタートアップやアトツギにフォーカスした映像メディア「SetouchiStartup Flag」のMCも務める。2024年ForbesJapanスモール・ジャイアンツ イノベーターに選出。第5回アトツギ甲子園ファイナリスト。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section id="schedule" class="py-16 px-16 bg-accent">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-xl md:text-4xl font-bold tracking-wide text-center mb-8 text-textMain whitespace-nowrap">
+        スケジュール
+      </h2>
+      
+      <div class="relative">
+        
+        <div class="space-y-8">
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+             <h3 class="text-xl font-bold text-primary mb-2">採択決定</h3>
+             <p class="text-textLight">2025年8月1日(金)</p>
+           </div>
+
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+             <h3 class="text-xl font-bold text-primary mb-2">キックオフミーティング@ももスタ</h3>
+             <p class="text-textLight">2025年8月24日(日)14:00〜16:00</p>
+           </div>
+
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+             <h3 class="text-xl font-bold text-primary mb-2">合宿@岡山県内</h3>
+             <p class="text-textLight">2025年10月11日(土)〜10月12日(日)</p>
+           </div>
+
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+             <h3 class="text-xl font-bold text-primary mb-2">中間発表@ももスタ</h3>
+             <p class="text-textLight">2025年11月8日(土)</p>
+           </div>
+
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+             <h3 class="text-xl font-bold text-primary mb-2">デモデイ@ももスタ</h3>
+             <p class="text-textLight">2026年1月17日(金)</p>
+           </div>
+
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+             <h3 class="text-xl font-bold text-primary mb-2">最終報告会@東京</h3>
+             <p class="text-textLight">2月下旬予定</p>
+           </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  <!-- Application Section -->
+  <section id="application" class="py-16 px-16 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-xl md:text-4xl font-bold tracking-wide text-center mb-8 text-textMain whitespace-nowrap">
+        参加者募集概要
+      </h2>
+      
+      <!-- First row: 募集人数 and 報酬 -->
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          <h3 class="text-lg md:text-xl font-bold text-primary mb-4">募集人数</h3>
+          <p class="text-xl md:text-2xl font-bold text-textMain mb-2">10チーム</p>
+          <p class="text-textLight">（1チームあたり1名〜10名）</p>
+        </div>
+        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          <h3 class="text-lg md:text-xl font-bold text-primary mb-4">報酬（支援金額）</h3>
+          <p class="text-lg md:text-2xl font-bold text-textMain mb-2">期間合計：最大150万円（税込）</p>
+          <p class="text-textLight">※開発時間に応じて報酬をお渡しいたします</p>
+        </div>
+      </div>
+
+      <!-- Second row: 求める人材 -->
+      <div class="mb-8">
+        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          <h3 class="text-lg md:text-xl font-bold text-primary mb-4">求める人材</h3>
+          <ul class="space-y-2 text-textLight">
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              自分のアイデアや情熱をカタチにしたい人
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              地元・瀬戸内への想いがあって、課題をなんとかしたい人
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              自分の研究やスキルを社会で使ってみたい人
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              仲間と一緒に挑戦したい人や、転職・起業を考えてる人
+            </li>
+          </ul>
+          <div class="mt-4 p-3 bg-blue-50 rounded-lg">
+            <p class="text-sm text-textLight">
+              <span class="font-bold text-primary">瀬戸内エリア</span><br>
+              岡山県、広島県、山口県、鳥取県、島根県、香川県、徳島県、愛媛県、高知県、福岡県、大分県、兵庫県、大阪府、京都府、奈良県、和歌山県
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third row: 参加要件 -->
+      <div class="mb-8">
+        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          <h3 class="text-lg md:text-xl font-bold text-primary mb-4">参加要件</h3>
+          <ul class="space-y-2 text-textLight">
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              2025年4月1日時点で12歳〜25歳である
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              岡山県内で開催されるすべてのイベントに参加できること
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              活動報告書を提出可能である
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              プロジェクトに関するSNSでの発信（X／Instagramなど）が可能である
+            </li>
+          </ul>
+        </div>
+      </div>
+
+             <!-- Application Process -->
+               <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          <h3 class="text-lg md:text-xl font-bold text-primary mb-4">応募の流れ</h3>
+          <ul class="space-y-2 text-textLight">
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              <div>
+                <span class="font-bold text-textMain">エントリーフォーム送信</span><br>
+                下記のボタンからエントリーフォームにアクセスし、必要事項をご記入ください。
+              </div>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              <div>
+                <span class="font-bold text-textMain">選考面接</span><br>
+                書類選考通過者には、オンライン面接のご案内をお送りします。
+              </div>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">•</span>
+              <div>
+                <span class="font-bold text-textMain">参加決定</span><br>
+                最終選考結果をメールでお知らせし、参加が決定した方には詳細な案内をお送りします。
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- エントリーボタン（カード外に配置） -->
+      <div class="text-center mt-8">
+        <a href="https://forms.gle/YXe9pXWGSEsc8yLV7" target="_blank" class="inline-block bg-primary hover:bg-blue-700 text-white rounded-full px-8 py-3 font-bold text-lg transition-colors shadow-lg">
+          エントリーする
+        </a>
+    </div>
+  </section>
+
+  <!-- Series Section -->
+  <section id="series" class="py-16 px-16 bg-accent">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-xl md:text-4xl font-bold tracking-wide text-center mb-8 text-textMain whitespace-nowrap">
+        ORANGE Series
+      </h2>
+      <p class="text-center text-lg text-textLight mb-8">
+        これまで主催したORANGEシリーズのレポートは下記リンクからご覧ください。
+      </p>
+      
+             <div class="grid md:grid-cols-2 gap-8">
+         <div class="bg-white shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+           <div class="h-48 bg-contain bg-center bg-no-repeat bg-white mt-6 mx-6" style="background-image: url('note_orangedays.png');"></div>
+           <div class="px-6 pb-6 pt-4 text-center">
+             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-4">ORANGE DAYS</h3>
+             <p class="text-textLight mb-6">短期集中型のワークショップシリーズ。<br>アイデアを形にする体験型プログラム。</p>
+             <a href="https://note.com/kun1aki/n/ndadd59960803" target="_blank" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 transition-colors rounded-full">noteを読む</a>
+           </div>
+         </div>
+         <div class="bg-white shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+           <div class="h-48 bg-contain bg-center bg-no-repeat bg-white mt-6 mx-6" style="background-image: url('note_orangecamp.png');"></div>
+           <div class="px-6 pb-6 pt-4 text-center">
+             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-4">ORANGE CAMP</h3>
+             <p class="text-textLight mb-6">長期間にわたる集中育成プログラム。<br>本格的なプロダクト開発を目指します。</p>
+             <a href="https://note.com/kun1aki/n/nfaa99ea99c40" target="_blank" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 transition-colors rounded-full">noteを読む</a>
+           </div>
+         </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 text-textMain py-8 relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-5">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-primary rounded-full blur-xl"></div>
+      <div class="absolute bottom-20 right-20 w-40 h-40 bg-purple-400 rounded-full blur-xl"></div>
+      <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-blue-300 rounded-full blur-lg"></div>
+    </div>
+    
+    <div class="max-w-6xl mx-auto px-8 text-center relative z-10">
+      <!-- Main Title -->
+      <div class="mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-3 font-din tracking-widest">
+          ORANGE AI Project
+        </h2>
+        <div class="flex justify-center items-center mb-4">
+          <div class="h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent w-32"></div>
+          <div class="mx-4 w-2 h-2 bg-purple-400 rounded-full"></div>
+          <div class="h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent w-32"></div>
+        </div>
+        <p class="text-lg md:text-xl text-gray-600 font-noto font-light tracking-wide italic">
+          青春は青くない
+        </p>
+      </div>
+
+      <!-- Logos -->
+      <div class="mb-6 flex justify-center items-center gap-8">
+        <a href="https://setouchi.vc/" target="_blank" class="rounded-lg p-4">
+          <img src="setouchito.png" alt="SETOUCHITO" class="h-16 w-auto filter hover:brightness-110 hover:scale-110 transition-all duration-300" />
+        </a>
+        <a href="https://mitouteki.jp/r6/" target="_blank" class="rounded-lg p-4">
+          <img src="akatsuki.png" alt="AKATSUKI" class="h-16 w-auto filter hover:brightness-110 hover:scale-110 transition-all duration-300" />
+        </a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="border-t border-gray-200 pt-4">
+        <p class="text-gray-400 text-sm font-roboto tracking-wide">
+          © 2025 ORANGE AI Project. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('header');
+      if (window.scrollY > 100) {
+        navbar.classList.add('bg-white/98');
+        navbar.classList.remove('bg-white/95');
+      } else {
+        navbar.classList.add('bg-white/95');
+        navbar.classList.remove('bg-white/98');
+      }
+    });
+  </script>
+</body>
+</html>
