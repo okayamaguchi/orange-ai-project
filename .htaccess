@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Restricted Area"
+AuthUserFile /Users/kanna.yamaguchi/Desktop/orange_ai_site/.htpasswd
+Require valid-user 
