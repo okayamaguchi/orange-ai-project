@@ -1,3 +1,4 @@
+/*
 // より強固な認証システム - 一時的に無効化
 document.addEventListener('DOMContentLoaded', function() {
   // 認証を一時的に無効化
@@ -89,4 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
       checkAuth();
     }
   });
-}); 
+});
+*/
+
+// 認証システム無効化中
+console.log('Authentication disabled for debugging'); 
