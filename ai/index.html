@@ -6,6 +6,18 @@
   <meta name="robots" content="noindex, nofollow" />
   <title>ORANGE AI Project - 青春は青くない</title>
   <!-- Cache buster: 2025-07-20-19:55 -->
+  <script>
+    // 認証システムを即座に無効化
+    try {
+      sessionStorage.setItem('orangeai_auth', 'verified');
+      if (document.documentElement.style.display === 'none') {
+        document.documentElement.style.display = '';
+      }
+      console.log('Inline authentication disabled');
+    } catch(e) {
+      console.log('Auth disable error:', e);
+    }
+  </script>
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
