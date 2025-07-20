@@ -1,5 +1,5 @@
 // より強固な認証システム - 一時的に無効化
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
   // 認証を一時的に無効化
   sessionStorage.setItem('orangeai_auth', 'verified');
   return;
@@ -89,4 +89,4 @@
       checkAuth();
     }
   });
-})(); 
+}); 
