@@ -166,6 +166,32 @@
         line-height: 1.4 !important;
       }
       
+      /* Mobile series card title - reduce top margin */
+      .mobile-series-card-title {
+        margin-top: 0 !important;
+      }
+      
+      /* Mobile series card title - ORANGE CAMP specific adjustment */
+      .mobile-series-card-title-camp {
+        margin-top: -0.75rem !important;
+      }
+      
+      /* Mobile series card padding - ORANGE CAMP specific */
+      .mobile-card-padding-camp {
+        padding: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+        padding-top: 1rem !important;
+      }
+      
+      /* Mobile footer title size - match header size (text-2xl = 1.5rem) */
+      .mobile-footer-title {
+        font-size: 1.5rem !important;
+      }
+      
+      /* Mobile footer logos spacing */
+      .mobile-footer-logos-spacing {
+        gap: 1rem !important;
+      }
+      
       /* Mobile supervisor profile spacing */
       .mobile-supervisor-profile {
         margin-top: 0 !important;
@@ -177,10 +203,57 @@
         gap: 1.5rem !important;
       }
       
+      /* Mobile series grid - same spacing as application cards */
+      .mobile-series-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      
+      /* Mobile feature grid - tighter spacing to match schedule */
+      .mobile-feature-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+      }
+      
+      /* Mobile schedule section spacing - tighter than default */
+      .mobile-schedule-spacing {
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      /* Mobile PM grid - tighter spacing to match schedule */
+      .mobile-pm-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+      }
+      
       /* Mobile footer logo layout */
       .mobile-footer-logos {
-        flex-direction: column !important;
-        gap: 1rem !important;
+        flex-direction: row !important;
+        gap: 0.5rem !important;
+      }
+      
+      /* Mobile footer logo images */
+      .mobile-footer-logos img {
+        height: 3.5rem !important;
+        width: auto !important;
+        object-fit: contain !important;
+      }
+      
+      /* Mobile footer logo links - remove padding */
+      .mobile-footer-logos a {
+        padding: 0 !important;
+      }
+      
+      /* Mobile footer logos container - reduce margin */
+      .mobile-footer-logos-margin {
+        margin-bottom: 1rem !important;
+        margin-top: 0.5rem !important;
+      }
+      
+      /* Mobile footer main title - reduce bottom margin */
+      .mobile-footer-main-title {
+        margin-bottom: 1rem !important;
       }
       
       /* Mobile image adjustments */
@@ -213,7 +286,12 @@
       
       /* Mobile feature cards */
       .mobile-feature-spacing {
-        margin-bottom: 1rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      /* Mobile supervisor card spacing - balanced between content and feature spacing */
+      .mobile-supervisor-spacing {
+        margin-bottom: 1.25rem !important;
       }
     }
     
@@ -291,7 +369,7 @@
   <section class="py-12 px-6 bg-gray-50 mobile-section-padding mobile-entry-section">
     <div class="max-w-sm mx-auto text-center">
       <!-- エントリー受付中バッジ -->
-      <div class="mb-8 flex justify-center">
+      <div class="mb-6 flex justify-center">
         <div class="bg-white shadow-md rounded-lg px-6 py-4 flex items-center gap-3 border-l-4 border-primary">
           <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
             <i class="fas fa-clock text-white text-xs"></i>
@@ -301,7 +379,7 @@
       </div>
       
       <!-- 日付セクション -->
-      <div class="mb-8">
+      <div class="mb-6">
         <div class="text-4xl font-bold text-primary mb-2 border-b-2 border-primary inline-block pb-2">
           2025/7/31
         </div>
@@ -334,7 +412,7 @@
       </div>
 
              <!-- Supervisor -->
-       <div class="bg-white shadow-lg p-8 mb-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 mobile-card-padding mobile-content-spacing">
+       <div class="bg-white shadow-lg p-8 mb-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 mobile-card-padding mobile-supervisor-spacing">
         <h3 class="text-xl md:text-2xl font-bold text-center mb-8 text-textMain mobile-title-size mobile-content-spacing">プロジェクト監修</h3>
         <div class="grid md:grid-cols-3 gap-8 items-center mobile-grid-fix">
           <div class="flex justify-center">
@@ -362,7 +440,7 @@
       </div>
 
              <!-- Features -->
-       <div class="grid md:grid-cols-3 gap-8 mobile-grid-fix">
+       <div class="grid md:grid-cols-3 gap-8 mobile-feature-grid">
          <div class="bg-white shadow-lg p-6 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer mobile-feature-compact mobile-feature-spacing">
            <div class="text-4xl mb-4 mobile-feature-emoji">💰</div>
            <h3 class="text-base md:text-lg font-bold mb-4 text-textMain mobile-subtitle-size mobile-feature-title">最大150万円の開発支援金を支給</h3>
@@ -389,9 +467,9 @@
         プロジェクトマネージャー
       </h2>
       
-      <div class="grid lg:grid-cols-2 gap-8 mobile-grid-fix">
+      <div class="grid lg:grid-cols-2 gap-8 mobile-pm-grid">
         <!-- Yamada -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-content-spacing">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-feature-spacing">
           <div class="p-6 mobile-card-padding">
             <div class="flex justify-center mb-4">
               <img 
@@ -418,7 +496,7 @@
         </div>
 
         <!-- Fujita -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-content-spacing">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-feature-spacing">
           <div class="p-6 mobile-card-padding">
             <div class="flex justify-center mb-4">
               <img 
@@ -456,7 +534,7 @@
       
       <div class="relative">
         
-        <div class="space-y-3">
+        <div class="space-y-2">
            <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing mobile-schedule-flex flex flex-col justify-center">
              <h3 class="text-xl font-bold text-primary mobile-subtitle-size mobile-schedule-title">採択決定</h3>
              <p class="text-textLight mobile-text-spacing mobile-xs-text">2025年8月1日(金)</p>
@@ -631,19 +709,19 @@
         これまで主催したORANGEシリーズのレポートは下記リンクからご覧ください。
       </p>
       
-             <div class="grid md:grid-cols-2 gap-8 mobile-grid-fix">
-         <div class="bg-white shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-feature-spacing">
+             <div class="grid md:grid-cols-2 gap-8 mobile-series-grid">
+         <div class="bg-white shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
            <div class="h-48 bg-contain bg-center bg-no-repeat bg-white mt-6 mx-6 img-placeholder" data-bg-src="note_orangedays.png"></div>
            <div class="px-6 pb-6 pt-3 md:pt-4 text-center mobile-card-padding">
-             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-3 md:mb-4 mobile-subtitle-size">ORANGE DAYS</h3>
+             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-3 md:mb-4 mobile-subtitle-size mobile-series-card-title">ORANGE DAYS</h3>
              <p class="text-textLight mb-4 md:mb-6 mobile-xs-text mobile-series-line-height">短期集中型のワークショップシリーズ。<br>アイデアを形にする体験型プログラム。</p>
              <a href="https://note.com/kun1aki/n/ndadd59960803" target="_blank" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 transition-colors rounded-full mobile-xs-text">noteを読む</a>
            </div>
          </div>
-         <div class="bg-white shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-feature-spacing">
+         <div class="bg-white shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
            <div class="h-48 bg-contain bg-center bg-no-repeat bg-white mt-6 mx-6 img-placeholder" data-bg-src="note_orangecamp.png"></div>
-           <div class="px-6 pb-6 pt-3 md:pt-4 text-center mobile-card-padding">
-             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-3 md:mb-4 mobile-subtitle-size">ORANGE CAMP</h3>
+           <div class="px-6 pb-6 pt-3 md:pt-4 text-center mobile-card-padding mobile-card-padding-camp">
+             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-3 md:mb-4 mobile-subtitle-size mobile-series-card-title mobile-series-card-title-camp">ORANGE CAMP</h3>
              <p class="text-textLight mb-4 md:mb-6 mobile-xs-text mobile-series-line-height">長期間にわたる集中育成プログラム。<br>本格的なプロダクト開発を目指します。</p>
              <a href="https://note.com/kun1aki/n/nfaa99ea99c40" target="_blank" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 transition-colors rounded-full mobile-xs-text">noteを読む</a>
            </div>
@@ -663,8 +741,8 @@
     
     <div class="max-w-6xl mx-auto px-8 text-center relative z-10 mobile-xs-padding">
       <!-- Main Title -->
-      <div class="mb-6 mobile-content-spacing">
-        <h2 class="text-2xl font-bold text-primary tracking-wide font-din mb-3 mobile-subtitle-size">
+      <div class="mb-6 mobile-footer-main-title">
+        <h2 class="text-2xl font-bold text-primary tracking-wide font-din mb-3 mobile-footer-title">
           ORANGE AI Project
         </h2>
         <div class="flex justify-center items-center mb-4">
@@ -672,20 +750,18 @@
           <div class="mx-4 w-2 h-2 bg-purple-400 rounded-full"></div>
           <div class="h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent w-32"></div>
         </div>
-        <p class="text-lg md:text-xl text-gray-600 font-noto font-light tracking-wide italic mobile-text-spacing mobile-xs-text">
+        <p class="text-base md:text-lg text-gray-600 font-noto font-light tracking-wide italic mobile-text-spacing mobile-xs-text">
           青春は青くない
         </p>
       </div>
 
       <!-- Logos -->
-      <div class="mb-6 flex justify-center items-center gap-8 mobile-content-spacing mobile-footer-logos">
+      <div class="mb-6 flex justify-center items-center gap-8 mobile-footer-logos mobile-footer-logos-spacing mobile-footer-logos-margin">
         <a href="https://setouchi.vc/" target="_blank" class="rounded-lg p-4 mobile-xs-padding">
           <img 
             data-src="setouchito.png" 
             alt="SETOUCHITO" 
             class="h-16 w-auto filter hover:brightness-110 hover:scale-110 transition-all duration-300 img-placeholder" 
-            width="64" 
-            height="64"
             loading="lazy" 
           />
         </a>
@@ -694,8 +770,6 @@
             data-src="akatsuki.png" 
             alt="AKATSUKI" 
             class="h-16 w-auto filter hover:brightness-110 hover:scale-110 transition-all duration-300 img-placeholder" 
-            width="64" 
-            height="64"
             loading="lazy" 
           />
         </a>
