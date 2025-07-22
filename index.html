@@ -64,8 +64,23 @@
       filter: none;
     }
     
+    /* Debug styles - temporary */
+    .debug-mobile {
+      border: 2px solid red !important;
+      background-color: rgba(255, 0, 0, 0.1) !important;
+    }
+    
     /* Mobile-specific optimizations */
     @media (max-width: 768px) {
+      /* Force mobile display */
+      .block.md\\:hidden {
+        display: block !important;
+      }
+      
+      .hidden.md\\:block {
+        display: none !important;
+      }
+      
       /* Header improvements */
       .mobile-menu-padding {
         padding-left: 1rem !important;
@@ -331,7 +346,7 @@
         </a>
       </div>
       <!-- Mobile menu button -->
-      <button class="md:hidden text-textMain" id="mobile-menu-btn">
+      <button class="md:hidden text-textMain debug-mobile" id="mobile-menu-btn">
         <i class="fas fa-bars text-xl"></i>
       </button>
     </nav>
@@ -353,7 +368,7 @@
     <div class="absolute inset-0 hidden md:block md:bg-black/20"></div>
     
     <!-- Mobile view -->
-    <div class="block md:hidden mt-[72px]">
+    <div class="block md:hidden mt-[72px] debug-mobile">
       <img src="/fujita_kiguchi_yamada.png" alt="ORANGE AI Project" class="w-full h-auto block" width="800" height="400" />
     </div>
     
