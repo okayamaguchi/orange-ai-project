@@ -1,2 +1,13 @@
-/ai/ / 301
-/ai /ai/ 301 
+# Proxy /ai/ to main content without URL change
+/ai/ /index.html 200
+/ai /ai/ 301
+
+# Asset proxies for /ai/ path
+/ai/favicon.ico /favicon.ico 200
+/ai/favicon-32x32.png /favicon-32x32.png 200
+/ai/favicon-16x16.png /favicon-16x16.png 200
+/ai/apple-touch-icon.png /apple-touch-icon.png 200
+/ai/*.png /*.png 200
+/ai/*.jpg /*.jpg 200
+/ai/*.css /*.css 200
+/ai/*.js /*.js 200 
