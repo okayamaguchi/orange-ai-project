@@ -15,11 +15,13 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Montserrat:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/din-next" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Montserrat:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,300;0,400;1,300&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script>
     tailwind.config = {
+      corePlugins: {
+        preflight: true,
+      },
       theme: {
         extend: {
           colors: {
@@ -30,7 +32,7 @@
             textLight: '#6B7280'
           },
           fontFamily: {
-            'din': ['DIN Next', 'DIN', 'Noto Sans JP', 'sans-serif'],
+            'din': ['Inter', 'system-ui', 'Noto Sans JP', 'sans-serif'],
             'noto': ['Noto Sans JP', 'sans-serif'],
             'montserrat': ['Montserrat', 'sans-serif'],
             'roboto': ['Roboto', 'sans-serif']
@@ -66,19 +68,44 @@
     
     /* Debug styles - temporary */
     .debug-mobile {
-      border: 2px solid red !important;
-      background-color: rgba(255, 0, 0, 0.1) !important;
+      border: 3px solid red !important;
+      background-color: rgba(255, 0, 0, 0.2) !important;
+      position: relative !important;
+    }
+    
+    .debug-mobile::before {
+      content: "MOBILE DEBUG" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      background: red !important;
+      color: white !important;
+      padding: 2px 5px !important;
+      font-size: 10px !important;
+      z-index: 9999 !important;
     }
     
     /* Mobile-specific optimizations */
-    @media (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       /* Force mobile display */
-      .block.md\\:hidden {
+      .block.md\:hidden {
         display: block !important;
       }
       
-      .hidden.md\\:block {
+      .hidden.md\:block {
         display: none !important;
+      }
+      
+      /* Ensure mobile hero section is visible */
+      #hero .block.md\:hidden {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      
+      #hero .hidden.md\:block {
+        display: none !important;
+        visibility: hidden !important;
       }
       
       /* Header improvements */
@@ -876,4 +903,5 @@
   </script>
 </body>
 </html>
+
 
