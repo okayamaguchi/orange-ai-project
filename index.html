@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>ORANGE AI Project - 青春は青くない</title>
+  
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="fujita_kiguchi_yamada.png" />
+  
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -36,6 +40,30 @@
     }
   </script>
   <style>
+    /* Image optimization styles */
+    img {
+      transition: opacity 0.3s ease;
+    }
+    
+    img[data-src] {
+      opacity: 0;
+    }
+    
+    img.loaded {
+      opacity: 1;
+    }
+    
+    /* Blur placeholder for images */
+    .img-placeholder {
+      background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+      filter: blur(5px);
+      transition: filter 0.3s ease;
+    }
+    
+    .img-placeholder.loaded {
+      filter: none;
+    }
+    
     /* Mobile-specific optimizations */
     @media (max-width: 768px) {
       /* Header improvements */
@@ -86,12 +114,21 @@
       
       /* Mobile schedule card compact padding */
       .mobile-schedule-compact {
-        padding: 0.75rem !important;
+        padding: 0.5rem !important;
+      }
+      
+      /* Mobile schedule card flex layout */
+      .mobile-schedule-flex {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        min-height: 60px !important;
       }
       
       /* Mobile schedule title spacing */
       .mobile-schedule-title {
-        margin-bottom: 0.25rem !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
       }
       
       /* Mobile application card compact padding */
@@ -200,7 +237,7 @@
 </head>
 <body class="font-din bg-white text-textMain">
   <!-- Header -->
-  <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-accent">
+  <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50">
     <nav class="max-w-6xl mx-auto px-8 py-4 flex justify-between items-center mobile-menu-padding">
       <div class="text-2xl font-bold text-primary tracking-wide font-din">
         ORANGE AI Project
@@ -221,7 +258,7 @@
       </button>
     </nav>
     <!-- Mobile menu -->
-    <div class="md:hidden hidden bg-white border-t border-accent" id="mobile-menu">
+    <div class="md:hidden hidden bg-white" id="mobile-menu">
       <div class="px-8 py-4 space-y-4 mobile-menu-padding">
         <a href="#about" class="block text-textMain hover:text-primary italic">ABOUT</a>
         <a href="#pm" class="block text-textMain hover:text-primary italic">PM</a>
@@ -239,7 +276,7 @@
     
     <!-- Mobile view -->
     <div class="block md:hidden mt-[72px]">
-      <img src="fujita_kiguchi_yamada.png" alt="ORANGE AI Project" class="w-full h-auto block">
+      <img src="fujita_kiguchi_yamada.png" alt="ORANGE AI Project" class="w-full h-auto block" width="800" height="400" />
     </div>
     
     <!-- Desktop view -->
@@ -251,28 +288,39 @@
   </section>
 
   <!-- Entry Section -->
-  <section class="py-16 px-8 bg-gray-50 mobile-section-padding mobile-entry-section">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="mb-6 flex flex-col justify-center items-center gap-4 mobile-content-spacing">
-        <div class="bg-primary/10 text-primary px-6 py-3 flex items-center gap-2 border-l-4 border-primary mobile-xs-padding">
-          <i class="fas fa-clock"></i>
-          <span class="font-bold mobile-xs-text">エントリー受付中</span>
-        </div>
-        <div class="text-center mobile-content-spacing">
-          <div class="text-3xl font-bold text-primary border-b-2 border-primary pb-1 mobile-subtitle-size">2025/7/31</div>
-          <div class="text-sm text-textLight mt-1 mobile-xs-text">23:59 締切</div>
+  <section class="py-12 px-6 bg-gray-50 mobile-section-padding mobile-entry-section">
+    <div class="max-w-sm mx-auto text-center">
+      <!-- エントリー受付中バッジ -->
+      <div class="mb-8 flex justify-center">
+        <div class="bg-white shadow-md rounded-lg px-6 py-4 flex items-center gap-3 border-l-4 border-primary">
+          <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+            <i class="fas fa-clock text-white text-xs"></i>
+          </div>
+          <span class="font-bold text-primary text-lg">エントリー受付中</span>
         </div>
       </div>
-      <a href="https://forms.gle/YXe9pXWGSEsc8yLV7" target="_blank" class="inline-block bg-primary hover:bg-blue-700 text-white px-12 py-4 font-bold text-lg transition-colors shadow-lg border-none rounded-full mobile-button-spacing mobile-xs-text">
-        今すぐエントリー
-      </a>
+      
+      <!-- 日付セクション -->
+      <div class="mb-8">
+        <div class="text-4xl font-bold text-primary mb-2 border-b-2 border-primary inline-block pb-2">
+          2025/7/31
+        </div>
+        <div class="text-base md:text-lg text-textLight mt-2 font-medium">23:59 締切</div>
+      </div>
+      
+      <!-- エントリーボタン -->
+      <div class="mb-4">
+        <a href="https://forms.gle/YXe9pXWGSEsc8yLV7" target="_blank" class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-4 font-bold text-lg transition-colors shadow-lg rounded-full w-full max-w-xs">
+          今すぐエントリー
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- About Section -->
   <section id="about" class="py-16 px-16 bg-accent mobile-section-padding">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-xl md:text-4xl font-bold tracking-wide text-center mb-8 text-textMain whitespace-nowrap mobile-title-size mobile-content-spacing">
+      <h2 class="text-xl md:text-4xl font-bold tracking-wide text-center mb-6 md:mb-8 text-textMain whitespace-nowrap mobile-title-size">
         ORANGE AI Project とは
       </h2>
       
@@ -290,10 +338,17 @@
         <h3 class="text-xl md:text-2xl font-bold text-center mb-8 text-textMain mobile-title-size mobile-content-spacing">プロジェクト監修</h3>
         <div class="grid md:grid-cols-3 gap-8 items-center mobile-grid-fix">
           <div class="flex justify-center">
-            <img src="kiguchi.jpg" alt="木口佳南氏" class="w-48 h-48 rounded-full object-cover shadow-lg mobile-image-size" />
+            <img 
+              data-src="kiguchi.jpg" 
+              alt="木口佳南氏" 
+              class="w-48 h-48 rounded-full object-cover shadow-lg mobile-image-size img-placeholder" 
+              width="192" 
+              height="192"
+              loading="lazy" 
+            />
           </div>
                       <div class="md:col-span-2">
-              <div class="flex items-center mb-0 mobile-content-spacing">
+              <div class="flex items-center mb-2 md:mb-3">
                 <h4 class="text-lg md:text-xl font-bold text-primary mr-3 mobile-subtitle-size">木口 佳南 氏</h4>
                 <a href="https://x.com/KananK_AI" target="_blank" class="text-textLight text-lg font-bold hover:text-primary transition-colors">𝕏</a>
               </div>
@@ -339,11 +394,18 @@
         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-content-spacing">
           <div class="p-6 mobile-card-padding">
             <div class="flex justify-center mb-4">
-              <img src="yamada_new.png" alt="山田邦明" class="w-48 h-48 rounded-full object-cover shadow-lg mobile-image-size" />
+              <img 
+                data-src="yamada_new.png" 
+                alt="山田邦明" 
+                class="w-48 h-48 rounded-full object-cover shadow-lg mobile-image-size img-placeholder" 
+                width="192" 
+                height="192"
+                loading="lazy" 
+              />
             </div>
             <div class="text-center">
               <div class="flex items-center justify-center mb-1">
-                <h3 class="text-xl md:text-2xl font-bold text-textMain mr-3 mobile-subtitle-size">山田　邦明</h3>
+                <h3 class="text-xl md:text-2xl font-bold text-textMain mr-3 mobile-subtitle-size">山田 邦明</h3>
                 <a href="https://x.com/kun1aki" target="_blank" class="text-textLight text-lg font-bold hover:text-primary transition-colors">𝕏</a>
               </div>
               <p class="text-lg italic text-textLight mb-2 mobile-text-spacing mobile-xs-text">Kuniaki Yamada</p>
@@ -359,11 +421,18 @@
         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-content-spacing">
           <div class="p-6 mobile-card-padding">
             <div class="flex justify-center mb-4">
-              <img src="fujita_new.png" alt="藤田圭一郎" class="w-48 h-48 rounded-full object-cover shadow-lg mobile-image-size" />
+              <img 
+                data-src="fujita_new.png" 
+                alt="藤田圭一郎" 
+                class="w-48 h-48 rounded-full object-cover shadow-lg mobile-image-size img-placeholder" 
+                width="192" 
+                height="192"
+                loading="lazy" 
+              />
             </div>
             <div class="text-center">
               <div class="flex items-center justify-center mb-1">
-                <h3 class="text-xl md:text-2xl font-bold text-textMain mr-3 mobile-subtitle-size">藤田　圭一郎</h3>
+                <h3 class="text-xl md:text-2xl font-bold text-textMain mr-3 mobile-subtitle-size">藤田 圭一郎</h3>
                 <a href="https://x.com/keiichilo" target="_blank" class="text-textLight text-lg font-bold hover:text-primary transition-colors">𝕏</a>
               </div>
               <p class="text-lg italic text-textLight mb-2 mobile-text-spacing mobile-xs-text">Keiichiro Fujita</p>
@@ -387,34 +456,34 @@
       
       <div class="relative">
         
-        <div class="space-y-4">
-           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing">
-             <h3 class="text-xl font-bold text-primary mb-2 mobile-subtitle-size mobile-schedule-title">採択決定</h3>
+        <div class="space-y-3">
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing mobile-schedule-flex flex flex-col justify-center">
+             <h3 class="text-xl font-bold text-primary mobile-subtitle-size mobile-schedule-title">採択決定</h3>
              <p class="text-textLight mobile-text-spacing mobile-xs-text">2025年8月1日(金)</p>
            </div>
 
-           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing">
-             <h3 class="text-xl font-bold text-primary mb-2 mobile-subtitle-size mobile-schedule-title">キックオフミーティング@ももスタ</h3>
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing mobile-schedule-flex flex flex-col justify-center">
+             <h3 class="text-xl font-bold text-primary mobile-subtitle-size mobile-schedule-title">キックオフミーティング@ももスタ</h3>
              <p class="text-textLight mobile-text-spacing mobile-xs-text">2025年8月24日(日)14:00〜16:00</p>
            </div>
 
-           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing">
-             <h3 class="text-xl font-bold text-primary mb-2 mobile-subtitle-size mobile-schedule-title">合宿@岡山県内</h3>
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing mobile-schedule-flex flex flex-col justify-center">
+             <h3 class="text-xl font-bold text-primary mobile-subtitle-size mobile-schedule-title">合宿@岡山県内</h3>
              <p class="text-textLight mobile-text-spacing mobile-xs-text">2025年10月11日(土)〜10月12日(日)</p>
            </div>
 
-           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing">
-             <h3 class="text-xl font-bold text-primary mb-2 mobile-subtitle-size mobile-schedule-title">中間発表@ももスタ</h3>
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing mobile-schedule-flex flex flex-col justify-center">
+             <h3 class="text-xl font-bold text-primary mobile-subtitle-size mobile-schedule-title">中間発表@ももスタ</h3>
              <p class="text-textLight mobile-text-spacing mobile-xs-text">2025年11月8日(土)</p>
            </div>
 
-           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing">
-             <h3 class="text-xl font-bold text-primary mb-2 mobile-subtitle-size mobile-schedule-title">デモデイ@ももスタ</h3>
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing mobile-schedule-flex flex flex-col justify-center">
+             <h3 class="text-xl font-bold text-primary mobile-subtitle-size mobile-schedule-title">デモデイ@ももスタ</h3>
              <p class="text-textLight mobile-text-spacing mobile-xs-text">2026年1月17日(金)</p>
            </div>
 
-           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing">
-             <h3 class="text-xl font-bold text-primary mb-2 mobile-subtitle-size mobile-schedule-title">最終報告会@東京</h3>
+           <div class="bg-white shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-schedule-compact mobile-feature-spacing mobile-schedule-flex flex flex-col justify-center">
+             <h3 class="text-xl font-bold text-primary mobile-subtitle-size mobile-schedule-title">最終報告会@東京</h3>
              <p class="text-textLight mobile-text-spacing mobile-xs-text">2月下旬予定</p>
            </div>
         </div>
@@ -430,22 +499,38 @@
       </h2>
       
       <!-- First row: 募集人数 and 報酬 -->
-      <div class="grid md:grid-cols-2 gap-6 mb-6 mobile-grid-fix mobile-content-spacing">
-        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-compact mobile-feature-spacing">
-          <h3 class="text-lg md:text-xl font-bold text-primary mb-4 mobile-subtitle-size mobile-application-title">募集人数</h3>
-          <p class="text-xl md:text-2xl font-bold text-textMain mb-2 mobile-subtitle-size mobile-application-highlight">10チーム</p>
-          <p class="text-textLight mobile-text-spacing mobile-xs-text">（1チームあたり1名〜10名）</p>
+      <div class="grid md:grid-cols-2 gap-6 mb-6 mobile-grid-fix">
+        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-list-compact">
+          <h3 class="text-lg md:text-xl font-bold text-primary mb-4 mobile-subtitle-size mobile-application-list-title">募集人数</h3>
+          <ul class="space-y-1 text-textLight">
+            <li class="flex items-start gap-2 mobile-application-list-item">
+              <span class="text-primary font-bold">•</span>
+              <span class="mobile-xs-text font-bold text-textMain">10チーム</span>
+            </li>
+            <li class="flex items-start gap-2 mobile-application-list-item">
+              <span class="text-primary font-bold">•</span>
+              <span class="mobile-xs-text">1チームあたり1名〜10名</span>
+            </li>
+          </ul>
         </div>
-        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-compact mobile-feature-spacing">
-          <h3 class="text-lg md:text-xl font-bold text-primary mb-4 mobile-subtitle-size mobile-application-title">報酬（支援金額）</h3>
-          <p class="text-lg md:text-2xl font-bold text-textMain mb-2 mobile-subtitle-size mobile-application-highlight">期間合計：最大150万円（税込）</p>
-          <p class="text-textLight mobile-text-spacing mobile-xs-text">※開発時間に応じて報酬をお渡しいたします</p>
+        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-list-compact">
+          <h3 class="text-lg md:text-xl font-bold text-primary mb-4 mobile-subtitle-size mobile-application-list-title">報酬（支援金額）</h3>
+          <ul class="space-y-1 text-textLight">
+            <li class="flex items-start gap-2 mobile-application-list-item">
+              <span class="text-primary font-bold">•</span>
+              <span class="mobile-xs-text font-bold text-textMain">期間合計：最大150万円（税込）</span>
+            </li>
+            <li class="flex items-start gap-2 mobile-application-list-item">
+              <span class="text-primary font-bold">•</span>
+              <span class="mobile-xs-text">開発時間に応じて報酬をお渡しいたします</span>
+            </li>
+          </ul>
         </div>
       </div>
 
       <!-- Second row: 求める人材 -->
-      <div class="mb-6 mobile-content-spacing">
-        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-list-compact mobile-feature-spacing">
+      <div class="mb-6">
+        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-list-compact">
           <h3 class="text-lg md:text-xl font-bold text-primary mb-4 mobile-subtitle-size mobile-application-list-title">求める人材</h3>
           <ul class="space-y-1 text-textLight">
             <li class="flex items-start gap-2 mobile-application-list-item">
@@ -465,8 +550,8 @@
               <span class="mobile-xs-text">仲間と一緒に挑戦したい人や、転職・起業を考えてる人</span>
             </li>
           </ul>
-          <div class="mt-4 p-3 bg-blue-50 rounded-lg mobile-content-spacing">
-            <p class="text-sm text-textLight mobile-xs-text mobile-text-spacing">
+          <div class="mt-4 p-2 bg-blue-50 rounded-lg">
+            <p class="text-sm text-textLight mobile-xs-text">
               <span class="font-bold text-primary">瀬戸内エリア</span><br>
               岡山県、広島県、山口県、鳥取県、島根県、香川県、徳島県、愛媛県、高知県、福岡県、大分県、兵庫県、大阪府、京都府、奈良県、和歌山県
             </p>
@@ -475,8 +560,8 @@
       </div>
 
       <!-- Third row: 参加要件 -->
-      <div class="mb-6 mobile-content-spacing">
-        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-list-compact mobile-feature-spacing">
+      <div class="mb-6">
+        <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-list-compact">
           <h3 class="text-lg md:text-xl font-bold text-primary mb-4 mobile-subtitle-size mobile-application-list-title">参加要件</h3>
           <ul class="space-y-1 text-textLight">
             <li class="flex items-start gap-2 mobile-application-list-item">
@@ -500,24 +585,24 @@
       </div>
 
              <!-- Application Process -->
-               <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-compact mobile-feature-spacing">
-          <h3 class="text-lg md:text-xl font-bold text-primary mb-4 mobile-subtitle-size mobile-application-title">応募の流れ</h3>
-          <ul class="space-y-2 text-textLight">
-            <li class="flex items-start gap-2 mobile-text-spacing">
+               <div class="bg-accent shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer mobile-application-list-compact">
+          <h3 class="text-lg md:text-xl font-bold text-primary mb-4 mobile-subtitle-size mobile-application-list-title">応募の流れ</h3>
+          <ul class="space-y-1 text-textLight">
+            <li class="flex items-start gap-2 mobile-application-list-item">
               <span class="text-primary font-bold">•</span>
               <div>
                 <span class="font-bold text-textMain mobile-xs-text">エントリーフォーム送信</span><br>
                 <span class="mobile-xs-text">下記のボタンからエントリーフォームにアクセスし、必要事項をご記入ください。</span>
               </div>
             </li>
-            <li class="flex items-start gap-2 mobile-text-spacing">
+            <li class="flex items-start gap-2 mobile-application-list-item">
               <span class="text-primary font-bold">•</span>
               <div>
                 <span class="font-bold text-textMain mobile-xs-text">選考面接</span><br>
                 <span class="mobile-xs-text">書類選考通過者には、オンライン面接のご案内をお送りします。</span>
               </div>
             </li>
-            <li class="flex items-start gap-2 mobile-text-spacing">
+            <li class="flex items-start gap-2 mobile-application-list-item">
               <span class="text-primary font-bold">•</span>
               <div>
                 <span class="font-bold text-textMain mobile-xs-text">参加決定</span><br>
@@ -529,7 +614,7 @@
       </div>
       
       <!-- エントリーボタン（カード外に配置） -->
-      <div class="text-center mt-8 mobile-button-spacing">
+      <div class="text-center mt-12 md:mt-12">
         <a href="https://forms.gle/YXe9pXWGSEsc8yLV7" target="_blank" class="inline-block bg-primary hover:bg-blue-700 text-white rounded-full px-8 py-3 font-bold text-lg transition-colors shadow-lg mobile-xs-text">
           エントリーする
         </a>
@@ -539,7 +624,7 @@
   <!-- Series Section -->
   <section id="series" class="py-16 px-16 bg-accent mobile-section-padding">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-xl md:text-4xl font-bold tracking-wide text-center mb-8 text-textMain whitespace-nowrap mobile-title-size mobile-content-spacing">
+      <h2 class="text-xl md:text-4xl font-bold tracking-wide text-center mb-6 md:mb-8 text-textMain whitespace-nowrap mobile-title-size">
         ORANGE Series
       </h2>
       <p class="text-center text-lg text-textLight mb-8 mobile-text-spacing mobile-xs-text mobile-content-spacing">
@@ -548,18 +633,18 @@
       
              <div class="grid md:grid-cols-2 gap-8 mobile-grid-fix">
          <div class="bg-white shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-feature-spacing">
-           <div class="h-48 bg-contain bg-center bg-no-repeat bg-white mt-6 mx-6" style="background-image: url('note_orangedays.png');"></div>
-           <div class="px-6 pb-6 pt-4 text-center mobile-card-padding">
-             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-4 mobile-subtitle-size mobile-content-spacing">ORANGE DAYS</h3>
-             <p class="text-textLight mb-6 mobile-text-spacing mobile-xs-text mobile-series-line-height">短期集中型のワークショップシリーズ。<br>アイデアを形にする体験型プログラム。</p>
+           <div class="h-48 bg-contain bg-center bg-no-repeat bg-white mt-6 mx-6 img-placeholder" data-bg-src="note_orangedays.png"></div>
+           <div class="px-6 pb-6 pt-3 md:pt-4 text-center mobile-card-padding">
+             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-3 md:mb-4 mobile-subtitle-size">ORANGE DAYS</h3>
+             <p class="text-textLight mb-4 md:mb-6 mobile-xs-text mobile-series-line-height">短期集中型のワークショップシリーズ。<br>アイデアを形にする体験型プログラム。</p>
              <a href="https://note.com/kun1aki/n/ndadd59960803" target="_blank" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 transition-colors rounded-full mobile-xs-text">noteを読む</a>
            </div>
          </div>
          <div class="bg-white shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 mobile-feature-spacing">
-           <div class="h-48 bg-contain bg-center bg-no-repeat bg-white mt-6 mx-6" style="background-image: url('note_orangecamp.png');"></div>
-           <div class="px-6 pb-6 pt-4 text-center mobile-card-padding">
-             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-4 mobile-subtitle-size mobile-content-spacing">ORANGE CAMP</h3>
-             <p class="text-textLight mb-6 mobile-text-spacing mobile-xs-text mobile-series-line-height">長期間にわたる集中育成プログラム。<br>本格的なプロダクト開発を目指します。</p>
+           <div class="h-48 bg-contain bg-center bg-no-repeat bg-white mt-6 mx-6 img-placeholder" data-bg-src="note_orangecamp.png"></div>
+           <div class="px-6 pb-6 pt-3 md:pt-4 text-center mobile-card-padding">
+             <h3 class="text-xl md:text-2xl font-bold text-textMain mb-3 md:mb-4 mobile-subtitle-size">ORANGE CAMP</h3>
+             <p class="text-textLight mb-4 md:mb-6 mobile-xs-text mobile-series-line-height">長期間にわたる集中育成プログラム。<br>本格的なプロダクト開発を目指します。</p>
              <a href="https://note.com/kun1aki/n/nfaa99ea99c40" target="_blank" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 transition-colors rounded-full mobile-xs-text">noteを読む</a>
            </div>
          </div>
@@ -595,10 +680,24 @@
       <!-- Logos -->
       <div class="mb-6 flex justify-center items-center gap-8 mobile-content-spacing mobile-footer-logos">
         <a href="https://setouchi.vc/" target="_blank" class="rounded-lg p-4 mobile-xs-padding">
-          <img src="setouchito.png" alt="SETOUCHITO" class="h-16 w-auto filter hover:brightness-110 hover:scale-110 transition-all duration-300" />
+          <img 
+            data-src="setouchito.png" 
+            alt="SETOUCHITO" 
+            class="h-16 w-auto filter hover:brightness-110 hover:scale-110 transition-all duration-300 img-placeholder" 
+            width="64" 
+            height="64"
+            loading="lazy" 
+          />
         </a>
         <a href="https://mitouteki.jp/r6/" target="_blank" class="rounded-lg p-4 mobile-xs-padding">
-          <img src="akatsuki.png" alt="AKATSUKI" class="h-16 w-auto filter hover:brightness-110 hover:scale-110 transition-all duration-300" />
+          <img 
+            data-src="akatsuki.png" 
+            alt="AKATSUKI" 
+            class="h-16 w-auto filter hover:brightness-110 hover:scale-110 transition-all duration-300 img-placeholder" 
+            width="64" 
+            height="64"
+            loading="lazy" 
+          />
         </a>
       </div>
 
@@ -612,6 +711,44 @@
   </footer>
 
   <script>
+    // Lazy loading implementation
+    function lazyLoadImages() {
+      const images = document.querySelectorAll('img[data-src]');
+      const bgImages = document.querySelectorAll('[data-bg-src]');
+      
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            
+            if (img.dataset.src) {
+              // Regular images
+              img.src = img.dataset.src;
+              img.classList.add('loaded');
+              img.removeAttribute('data-src');
+            } else if (img.dataset.bgSrc) {
+              // Background images
+              img.style.backgroundImage = `url('${img.dataset.bgSrc}')`;
+              img.classList.add('loaded');
+              img.removeAttribute('data-bg-src');
+            }
+            
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
+      });
+
+      images.forEach(img => imageObserver.observe(img));
+      bgImages.forEach(img => imageObserver.observe(img));
+    }
+
+    // Initialize lazy loading when DOM is ready
+    document.addEventListener('DOMContentLoaded', lazyLoadImages);
+
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -650,3 +787,4 @@
   </script>
 </body>
 </html>
+
